@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employ well-defined and accepted coding standards, as they improve both code understandability and maintainability. - Guidelines for Architecting Android Apps</title>
+
+  <link rel="shortcut icon" href="/styles/images/favicon.png">
+  <link rel="icon" href="/styles/images/favicon.png">
+
+  <link rel="stylesheet" href="/styles/css/index.css">
+  <!--<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">-->
+  <link rel="stylesheet" href="/styles/css/syntax.css">
+  <link rel="canonical" href="/generic/generic-11/">
+  <link rel="alternate" type="application/rss+xml" title="Guidelines for Architecting Android Apps" href="/feed.xml">
+
+
+  <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
+  <meta name="keywords" content="Employ well-defined and accepted coding standards, as they improve both code understandability and maintainability., Guidelines for Architecting Android Apps, ">
+  <meta name="description" content="">
+
+  <script src="/styles/js/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .docs-content{
+        margin-bottom: 10px;
+      }
+    </style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/generic/catalog/">Generic</a>
+        </li>
+        <li>
+          <a href="/mvvm/catalog/">MVVM</a>
+        </li>
+        <li>
+          <a href="/mvp/catalog/">MVP</a>
+        </li>
+        <li>
+          <a href="/clean/catalog/">Clean</a>
+        </li>
+        <li>
+          <a href="/credits/">Credits</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <!--<div class="docs-header" id="content">-->
+  <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+  	<!--&lt;!&ndash;&ndash;&gt;-->
+    <!--&lt;!&ndash;&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/generic/catalog" style="text-transform: uppercase;">generic</a>	/
+    
+  </div>
+</div>
+
+
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebarpost hidden-print" role="complementary">
+        <div id="navigation">
+  <h1 style="text-transform: uppercase;">generic</h1>
+  <div style="height: 200px;width: 200px;">
+    <ul id="frontpagenav" class="nav sidenav">
+      
+      
+      <li><a href="/generic/generic-1/"><b>GENERIC-1:</b> Decouple components</a></li>
+      
+      <li><a href="/generic/generic-2/"><b>GENERIC-2:</b> Design independent components</a></li>
+      
+      <li><a href="/generic/generic-3/"><b>GENERIC-3:</b> Counter the tendency of Activities to grow too big</a></li>
+      
+      <li><a href="/generic/generic-4/"><b>GENERIC-4:</b> Separation of concerns in your architecture</a></li>
+      
+      <li><a href="/generic/generic-5/"><b>GENERIC-5:</b> Select architectual pattern</a></li>
+      
+      <li><a href="/generic/generic-6/"><b>GENERIC-6:</b> Organize packages</a></li>
+      
+      <li><a href="/generic/generic-7/"><b>GENERIC-7:</b> Take advantage of libraries</a></li>
+      
+      <li><a href="/generic/generic-8/"><b>GENERIC-8:</b> Cache data</a></li>
+      
+      <li><a href="/generic/generic-9/"><b>GENERIC-9:</b> Use interfaces</a></li>
+      
+      <li><a href="/generic/generic-10/"><b>GENERIC-10:</b> Avoid nested callbacks</a></li>
+      
+      <li><a href="/generic/generic-11/"><b>GENERIC-11:</b> Coding standards</a></li>
+      
+      <li><a href="/generic/generic-12/"><b>GENERIC-12:</b> Use a dedicated module</a></li>
+      
+      <li><a href="/generic/generic-13/"><b>GENERIC-13:</b> Lifecycle of android components</a></li>
+      
+      <li><a href="/generic/generic-14/"><b>GENERIC-14:</b> Designing background tasks</a></li>
+      
+      <li><a href="/generic/generic-15/"><b>GENERIC-15:</b> Permissions</a></li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+          <header class="post-header">
+            <h1 class="post-title">GENERIC-11: Employ well-defined and accepted coding standards, as they improve both code understandability and maintainability.</h1>
+            <br />
+          </header>
+          <article class="post-content">
+            <h3>Description</h3>
+<p>Coding standards are guidelines that all developers follow in a project follow to improve collaboration.
+When non-logical variable or function names are used, it becomes harder for others to understand the code. 
+Which results in time loss.
+There also exists coding standard files which can be linked to your AndroidStudio project. 
+This is often used because whenever a line of code does not match the coding standard this is automatically shown.
+An example coding standard file can be found <a href="https://github.com/ustwo/android-coding-standards">here.</a>
+Which follows the official Android coding standards: https://source.android.com/setup/contribute/code-style</p>
+
+<h3>Example</h3>
+<p>We created a simple <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication" target="_blank">application</a> which retrieves employees from this url: http://dummy.restapiexample.com/api/v1/</p>
+
+<script src="https://gist.github.com/Geertdepont/19218a422cf9fb53e02b280dcc405b7e.js"></script>
+
+<p>Always handle your exceptions. You might think that an exception would not occur. But it’s 
+hard to trace back, if you do not handle them.
+Do not catch generic exceptions. If someone adds another exception to the method which throws the exception, you might 
+spend more time retrieving the exception, since you did not know what caused it.</p>
+
+<p><b>Fields on top of your file</b>
+<script src="https://gist.github.com/Geertdepont/7d81c4202d16157d0bd7d0c5a90d4f5d.js"></script></p>
+
+<p>For more coding standards read this <a href="https://source.android.com/setup/contribute/code-style" target="_blank">link</a>:</p>
+
+<p><a href="https://source.android.com/setup/contribute/code-style" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">Go to the coding standards page</button></a>
+<a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/Bossapplication" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">Go to the github page</button></a></p>
+
+
+          </article>
+          <div class="PageNavigation">
+            
+            <a class="next" href="/generic/generic-10/">&laquo; Previous page </a>
+            
+            
+            <a class="prev" href="/generic/generic-12/"> Next page &raquo;</a>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container" style="text-align: center;">
+		<p class="copyright">Copyright &copy; 2019 <a href=""><code>Geert de Pont</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a></p>
+		<a href="https://www.vu.nl/" target="_blank"> <img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;"></a>
+		<a href="http://www.gssi.it/" target="_blank"> <img src="/assets/gssi.jpg" alt="GSSI" width="220px;"></a>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/navigation.js"></script>
+<script src="/styles/js/application.js"></script>
+
+  </body>
+</html>
+

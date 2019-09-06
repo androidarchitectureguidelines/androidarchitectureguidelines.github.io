@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Organize your Java/Kotlin packages and files either by layer or by app feature. - Guidelines for Architecting Android Apps</title>
+
+  <link rel="shortcut icon" href="/styles/images/favicon.png">
+  <link rel="icon" href="/styles/images/favicon.png">
+
+  <link rel="stylesheet" href="/styles/css/index.css">
+  <!--<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">-->
+  <link rel="stylesheet" href="/styles/css/syntax.css">
+  <link rel="canonical" href="/generic/generic-6/">
+  <link rel="alternate" type="application/rss+xml" title="Guidelines for Architecting Android Apps" href="/feed.xml">
+
+
+  <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
+  <meta name="keywords" content=" Organize your Java/Kotlin packages and files either by layer or by app feature., Guidelines for Architecting Android Apps, ">
+  <meta name="description" content="">
+
+  <script src="/styles/js/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .docs-content{
+        margin-bottom: 10px;
+      }
+    </style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/generic/catalog/">Generic</a>
+        </li>
+        <li>
+          <a href="/mvvm/catalog/">MVVM</a>
+        </li>
+        <li>
+          <a href="/mvp/catalog/">MVP</a>
+        </li>
+        <li>
+          <a href="/clean/catalog/">Clean</a>
+        </li>
+        <li>
+          <a href="/credits/">Credits</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <!--<div class="docs-header" id="content">-->
+  <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+  	<!--&lt;!&ndash;&ndash;&gt;-->
+    <!--&lt;!&ndash;&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/generic/catalog" style="text-transform: uppercase;">generic</a>	/
+    
+  </div>
+</div>
+
+
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebarpost hidden-print" role="complementary">
+        <div id="navigation">
+  <h1 style="text-transform: uppercase;">generic</h1>
+  <div style="height: 200px;width: 200px;">
+    <ul id="frontpagenav" class="nav sidenav">
+      
+      
+      <li><a href="/generic/generic-1/"><b>GENERIC-1:</b> Decouple components</a></li>
+      
+      <li><a href="/generic/generic-2/"><b>GENERIC-2:</b> Design independent components</a></li>
+      
+      <li><a href="/generic/generic-3/"><b>GENERIC-3:</b> Counter the tendency of Activities to grow too big</a></li>
+      
+      <li><a href="/generic/generic-4/"><b>GENERIC-4:</b> Separation of concerns in your architecture</a></li>
+      
+      <li><a href="/generic/generic-5/"><b>GENERIC-5:</b> Select architectual pattern</a></li>
+      
+      <li><a href="/generic/generic-6/"><b>GENERIC-6:</b> Organize packages</a></li>
+      
+      <li><a href="/generic/generic-7/"><b>GENERIC-7:</b> Take advantage of libraries</a></li>
+      
+      <li><a href="/generic/generic-8/"><b>GENERIC-8:</b> Cache data</a></li>
+      
+      <li><a href="/generic/generic-9/"><b>GENERIC-9:</b> Use interfaces</a></li>
+      
+      <li><a href="/generic/generic-10/"><b>GENERIC-10:</b> Avoid nested callbacks</a></li>
+      
+      <li><a href="/generic/generic-11/"><b>GENERIC-11:</b> Coding standards</a></li>
+      
+      <li><a href="/generic/generic-12/"><b>GENERIC-12:</b> Use a dedicated module</a></li>
+      
+      <li><a href="/generic/generic-13/"><b>GENERIC-13:</b> Lifecycle of android components</a></li>
+      
+      <li><a href="/generic/generic-14/"><b>GENERIC-14:</b> Designing background tasks</a></li>
+      
+      <li><a href="/generic/generic-15/"><b>GENERIC-15:</b> Permissions</a></li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+          <header class="post-header">
+            <h1 class="post-title">GENERIC-6:  Organize your Java/Kotlin packages and files either by layer or by app feature.</h1>
+            <br />
+          </header>
+          <article class="post-content">
+            <h3>Description</h3>
+<p>By organizing your packages and files  it becomes easier for 
+programmers to find the code which performs a certain aspect of your application.
+Whenever a feature has to be changed in layer-organized file system, multiple files in different packages need to be changed. 
+As however in packaging by feature this is less the case.</p>
+
+<h3>Example</h3>
+<p>Our <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub">MVVM-example</a> somehow needs to reflect that it uses this architecture.</p>
+<figure>
+  <img src="/assets/Rxjava_packages.png" alt="Rxjava packages" width="50%" />
+</figure>
+
+<p>As you can see there are three main packages:</p>
+<ul>
+<li>Service</li>
+<li>View</li>
+<li>ViewModel</li>
+</ul>
+
+<p>In the service package everything with data preparation is taken care of.
+E.g. fetching data from the server. Putting the fetched data into mutableLiveData.
+The ViewModel exposes methods which help maintain the View. 
+And the View handles the UI events and maps them to them to the ViewModel.</p>
+
+<p>Our <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin" target="_blank">MVP</a> also somehow needs to reflect it’s architecture.</p>
+
+<figure>
+  <img src="/assets/MVP_packages.png" alt="MVP packages" width="60%" />
+</figure>
+
+<p>As you can see there are three main packages:</p>
+<ul>
+<li>View</li>
+<li>Model</li>
+<li>Presenter</li>
+</ul>
+
+<p>In the model all the data management is taken care of. 
+The Presenter queries the data from the model, and returns it to the View.
+And the View presents the data to the user in a way the Presenter decided.</p>
+
+<p>Check out both the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub" target="_blank">MVVM example</a> and the <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin" target="_blank">MVP example</a> on these links.</p>
+
+<p><a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/RxjavaRetrofitGithub" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">MVVM example</button></a>
+<a href=" https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">MVP example</button></a></p>
+
+
+          </article>
+          <div class="PageNavigation">
+            
+            <a class="next" href="/generic/generic-5/">&laquo; Previous page </a>
+            
+            
+            <a class="prev" href="/generic/generic-7/"> Next page &raquo;</a>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container" style="text-align: center;">
+		<p class="copyright">Copyright &copy; 2019 <a href=""><code>Geert de Pont</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a></p>
+		<a href="https://www.vu.nl/" target="_blank"> <img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;"></a>
+		<a href="http://www.gssi.it/" target="_blank"> <img src="/assets/gssi.jpg" alt="GSSI" width="220px;"></a>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/navigation.js"></script>
+<script src="/styles/js/application.js"></script>
+
+  </body>
+</html>
+

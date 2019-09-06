@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strive towards separation of concerns in your architecture, where each component has well defined responsibility boundaries, a purpose, (set of) functionality, and configuration. - Guidelines for Architecting Android Apps</title>
+
+  <link rel="shortcut icon" href="/styles/images/favicon.png">
+  <link rel="icon" href="/styles/images/favicon.png">
+
+  <link rel="stylesheet" href="/styles/css/index.css">
+  <!--<link rel="stylesheet" href="/styles/css/fontawesome/css/font-awesome.min.css">-->
+  <link rel="stylesheet" href="/styles/css/syntax.css">
+  <link rel="canonical" href="/generic/generic-4/">
+  <link rel="alternate" type="application/rss+xml" title="Guidelines for Architecting Android Apps" href="/feed.xml">
+
+
+  <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+
+  <meta name="keywords" content="Strive towards separation of concerns in your architecture, where each component has well defined responsibility boundaries, a purpose, (set of) functionality, and configuration., Guidelines for Architecting Android Apps, ">
+  <meta name="description" content="">
+
+  <script src="/styles/js/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .docs-content{
+        margin-bottom: 10px;
+      }
+    </style>
+</head>
+
+  <body class="index">
+
+    <header class="navbar navbar-inverse navbar-fixed-top docs-nav" role="banner">
+  <div class="container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav">    
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li>
+          <a href="/generic/catalog/">Generic</a>
+        </li>
+        <li>
+          <a href="/mvvm/catalog/">MVVM</a>
+        </li>
+        <li>
+          <a href="/mvp/catalog/">MVP</a>
+        </li>
+        <li>
+          <a href="/clean/catalog/">Clean</a>
+        </li>
+        <li>
+          <a href="/credits/">Credits</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+    <!--<div class="docs-header" id="content">-->
+  <!--&lt;!&ndash;<div class="container">&ndash;&gt;-->
+  	<!--&lt;!&ndash;&ndash;&gt;-->
+    <!--&lt;!&ndash;&ndash;&gt;-->
+  <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</div>-->
+    
+      
+<div class="banner">
+  <div class="container">
+  	
+    	<a href="/generic/catalog" style="text-transform: uppercase;">generic</a>	/
+    
+  </div>
+</div>
+
+
+
+    
+
+    <div class="container docs-container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="sidebarpost hidden-print" role="complementary">
+        <div id="navigation">
+  <h1 style="text-transform: uppercase;">generic</h1>
+  <div style="height: 200px;width: 200px;">
+    <ul id="frontpagenav" class="nav sidenav">
+      
+      
+      <li><a href="/generic/generic-1/"><b>GENERIC-1:</b> Decouple components</a></li>
+      
+      <li><a href="/generic/generic-2/"><b>GENERIC-2:</b> Design independent components</a></li>
+      
+      <li><a href="/generic/generic-3/"><b>GENERIC-3:</b> Counter the tendency of Activities to grow too big</a></li>
+      
+      <li><a href="/generic/generic-4/"><b>GENERIC-4:</b> Separation of concerns in your architecture</a></li>
+      
+      <li><a href="/generic/generic-5/"><b>GENERIC-5:</b> Select architectual pattern</a></li>
+      
+      <li><a href="/generic/generic-6/"><b>GENERIC-6:</b> Organize packages</a></li>
+      
+      <li><a href="/generic/generic-7/"><b>GENERIC-7:</b> Take advantage of libraries</a></li>
+      
+      <li><a href="/generic/generic-8/"><b>GENERIC-8:</b> Cache data</a></li>
+      
+      <li><a href="/generic/generic-9/"><b>GENERIC-9:</b> Use interfaces</a></li>
+      
+      <li><a href="/generic/generic-10/"><b>GENERIC-10:</b> Avoid nested callbacks</a></li>
+      
+      <li><a href="/generic/generic-11/"><b>GENERIC-11:</b> Coding standards</a></li>
+      
+      <li><a href="/generic/generic-12/"><b>GENERIC-12:</b> Use a dedicated module</a></li>
+      
+      <li><a href="/generic/generic-13/"><b>GENERIC-13:</b> Lifecycle of android components</a></li>
+      
+      <li><a href="/generic/generic-14/"><b>GENERIC-14:</b> Designing background tasks</a></li>
+      
+      <li><a href="/generic/generic-15/"><b>GENERIC-15:</b> Permissions</a></li>
+      
+      
+    </ul>
+  </div>
+</div>
+
+
+      </div>
+    </div>
+    <div class="col-md-9" role="main">
+      <div class="panel docs-content">
+        <div class="wrapper">
+          <header class="post-header">
+            <h1 class="post-title">GENERIC-4: Strive towards separation of concerns in your architecture, where each component has well defined responsibility boundaries, a purpose, (set of) functionality, and configuration.</h1>
+            <br />
+          </header>
+          <article class="post-content">
+            <h3>Description</h3>
+
+<p>Architectural components of an app should
+have a single, well defined, responsibility. As a component
+grows bigger, it should be split up. By following the single
+responsibility principle, the app architecture naturally supports
+the structure of developer teams and development stages.
+Additionally, monoliths are detected in the early stages and
+modules become testable in isolation. Finally, if the app is built
+using Gradle, modularization can improve the performance of
+the build process and ease the development of Instant apps
+.
+It is important to notice that, while modularization may imply
+little effort if considered early in the project, it might become
+an extremely expensive process in later development stages</p>
+
+<h3>Example</h3>
+<p>We created a simple <a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin" target="_blank">MVP login Application</a>. 
+The AuthComponent has one responsibility: Inject the specified modules after login. 
+There are two activities that can take place after login:</p>
+
+<ul>
+<li>Get a greeting</li>
+<li>View other users</li>
+</ul>
+
+<p>So for both of these activities we create a component. A <b>GreetComponent</b> and a <b>ViewUserComponent</b>.
+The <b>GreetComponent</b> injects everything that is needed for the GreetActivity.
+The <b>ViewUserComponent</b> injects everything that is needed for the ViewUserActivity.</p>
+
+<p>We will only look at the <b>GreetComponent</b>.
+The <b>GreetComponent</b> uses the <b>GreetModule</b>. Which should provide everything the GreetActivity needs.
+<script src="https://gist.github.com/Geertdepont/f5f4acc6f143210c79305f7b58100a47.js"></script></p>
+
+<p>As we can see the GreetActivity needs a GreetPresenter. The GreetPresenter needs a GreetView and Credentials.</p>
+
+<script src="https://gist.github.com/Geertdepont/7d81c4202d16157d0bd7d0c5a90d4f5d.js"></script>
+
+<p>So all of this needs to be specified in the GreetModule.</p>
+
+<script src="https://gist.github.com/Geertdepont/fb6218336aa43df01f54a736ada4865f.js"></script>
+
+<p>The GreetPresenter calls the showMessage(mCredentials.getPersonalizedGreeting()) on the <b>GreetView</b>.
+This way each Architectural component has a single well defined responsibility.
+If we did not create a specific AuthComponent for this, we had to put everything into the AppComponent. 
+Which would then have too many responsibilities.</p>
+
+<figure>
+  <img src="/assets/AppComponentWithoutAuth.png" alt="AppComponent without AuthComponent" width="500" />
+</figure>
+
+<p><a href="https://github.com/Geertdepont/bachelor_thesis/tree/master/MVPLogin" target="_blank"><button type="button" class="btn btn-primary btn-icon-right">Go to the github page</button></a></p>
+
+
+          </article>
+          <div class="PageNavigation">
+            
+            <a class="next" href="/generic/generic-3/">&laquo; Previous page </a>
+            
+            
+            <a class="prev" href="/generic/generic-5/"> Next page &raquo;</a>
+            
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    
+    <footer class="footer" role="contentinfo">
+	<div class="container" style="text-align: center;">
+		<p class="copyright">Copyright &copy; 2019 <a href=""><code>Geert de Pont</code></a>.</p>
+		<p>Powered by <a href="http://jekyllrb.com">Jekyll</a>, themed from <a href="http://lesscss.cn/">Less</a></p>
+		<a href="https://www.vu.nl/" target="_blank"> <img src="/assets/vuamsterdam.svg" alt="Vrije Universiteit Amsterdam" width="220px;"></a>
+		<a href="http://www.gssi.it/" target="_blank"> <img src="/assets/gssi.jpg" alt="GSSI" width="220px;"></a>
+	</div>
+</footer>
+
+<script src="/styles/js/jquery.min.js"></script>
+<script src="/styles/js/bootstrap.min.js"></script>
+<script src="/styles/js/holder.min.js"></script>
+<script src="/styles/js/navigation.js"></script>
+<script src="/styles/js/application.js"></script>
+
+  </body>
+</html>
+
